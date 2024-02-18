@@ -1,29 +1,20 @@
-# ERB Lint [![Build Status](https://travis-ci.org/Shopify/erb-lint.svg?branch=master)](https://travis-ci.org/Shopify/erb-lint)
-
-`erb-lint` is a tool to help lint your ERB or HTML files using the included linters or by writing your own.
-
-## Requirements
-
-* Ruby 2.3.0+
- - This is due to use of the safe navigation operator (`&.`)
- - This is also due to the use of the tilde-heredoc `<<~` syntax in some tests.
-
-## Installation
-
+# ERB Lint [![Build Status](https://travis-ci.org/Shopify/erb-lint.svg?branch=master)](https://travis-ci.org/Shopify/erb-lint) `erb-lint` is a tool to help lint your ERB or HTML files using the included linters
+or by writing your own. #
+# Requirements * Ruby 2.3.0+ - This is due to use of the safe navigation operator (`&.`)- This is also due to the use of the tilde-heredoc
+`<<~`
+   syntax in   Some tests. #
+# Installation
 ```bash
 gem install erb_lint
 ```
-
 ...or add the following to your `Gemfile` and run `bundle install`:
-
 ```ruby
 gem 'erb_lint', require: false
 ```
-
 ## Configuration
-
-Create a `.erb-lint.yml` file in your project, with the following structure:
-
+Create a 
+`.erb-lint.yml` 
+file in your project, with the following structure:
 ```yaml
 ---
 EnableDefaultLinters: true
@@ -37,9 +28,7 @@ linters:
       inherit_from:
         - .rubocop.yml
 ```
-
 See below for linter-specific configuration options.
-
 ## Usage
 
 This gem provides a command-line interface which can be run like so:
@@ -51,7 +40,6 @@ For example, `erblint --lint-all --enable-all-linters` will run all available
 linters on all ERB files in the current directory or its descendants (`**/*.html{+*,}.erb`).
 
 If you want to change the glob that is used, you can configure it by adding it to your config file as follows:
-
 ```yaml
 ---
 glob: "**/*.{html,text,js}{+*,}.erb"
@@ -67,10 +55,8 @@ linters:
 ```
 
 ## Enable or disable default linters
-`EnableDefaultLinters`: enables or disables default linters. [Default linters](#Linters) are enabled by default.
-
-## Linters
-
+`EnableDefaultLinters`: enables or disables default linters. [Default linters](#Linters) are enabled by default. #
+# Linters
 | Available Linters                                | Default  | Description |
 | ------------------------------------------------ |:--------:|-------------|
 | [AllowedScriptType](#AllowedScriptType)          | Yes      | prevents the addition of `<script>` tags that have `type` attributes that are not in a white-list of allowed values |
@@ -92,12 +78,14 @@ linters:
 
 ### DeprecatedClasses
 
-DeprecatedClasses will find all classes used on HTML elements and report any classes that violate the rule set that you provide.
-
-A `rule_set` is specified as a list, each with a set of `deprecated` classes and a corresponding `suggestion` to use as an alternative.
-
+DeprecatedClasses will find all classes used on HTML elements and report any classes that violate the rule set that you provide. A `rule_set`
+is specified as a
+list, each with a 
+set of `deprecated` 
+classes and a 
+corresponding `suggestion`
+to use as an alternative.
 Example configuration:
-
 ```yaml
 ---
 linters:
